@@ -1,18 +1,18 @@
 import {useState} from 'react';
 
-export function TwitterFollowCard({userName, name/* children */}){
+export function TwitterFollowCard({userName, name/* children */}, initialIsFallowing){
 /* -para que img cambie. Crear constante y pasarle el {userName}
 Si le quiero pasar por default un valor. Por ejemplo si el userName es unknown, que aparezca
 por defecto----> userName="unknown"
 */
 
-const [isFollowing, setIsFollowing]=useState(false)
+const [isFollowing, setIsFollowing]=useState(initialIsFallowing) /* SI SE PASA ASI, SE INICIALIZA UNA SOLA VEZ */
 
 const text=isFollowing ? "Siguiendo" : "Seguir"
 const buttonClassName = isFollowing ? "tw-followCard-button is-fallowing" : "tw-followCard-button"
 
 const handleClick=()=>{
-  setIsFollowing(!isFollowing) /* si es false, pasalo a true o viceversa */
+  setIsFollowing(!isFollowing) /* si es false, pasalo a true o viceversa  */
 }
 
   return (
