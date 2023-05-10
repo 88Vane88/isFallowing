@@ -1,20 +1,55 @@
 import {TwitterFollowCard} from "./TwitterFollowCars"
 import "./app.css"
 
+const users=[
+  {
+    id:1,
+    userName:"midudev",
+    name:"Miguel Angel Duran",
+    isFollowing:true
+  },
+  {
+    id:2,
+    userName:"vane88",
+    name:"Sandra Vanesa Cignani",
+    isFollowing:false
+  },
+  {
+    id:3,
+    userName:"morenita",
+    name:"Morena",
+    isFollowing:true
+  },
+  {
+    id:4,
+    userName:"Martiu",
+    name:"Martinaa",
+    isFollowing:false
+  }
+]
+
 export default function App() {
 /* const format=(userName)=>`@${userName}` */ 
 
 
 return(
   <section className="App">
-    <TwitterFollowCard 
-    initialIsFollowing={true}
-    userName="midudev"
-    name= "Miguel Durán"/>
-    <TwitterFollowCard 
+   {
+      users.map(({userName, name, isFollowing, id})=> (
+      <TwitterFollowCard
+      key={id}
+      userName={userName}
+      initialIsFallowing={isFollowing}>
+       {name}
+      </TwitterFollowCard>
+    ))}
+
+
+    {/* <TwitterFollowCard 
     isFollowing={false}
     userName="vane88"
-    name= "Vanesa Cignani"/>
+    name= "Vanesa Cignani"/> */}
+
     {/* <TwitterFollowCard 
    <h1> Miguel Durán</h1> />
    

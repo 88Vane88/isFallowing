@@ -1,6 +1,7 @@
 import {useState} from 'react';
 
-export function TwitterFollowCard({userName, name/* children */}, initialIsFallowing){
+
+export function TwitterFollowCard({userName, children, initialIsFallowing}){
 /* -para que img cambie. Crear constante y pasarle el {userName}
 Si le quiero pasar por default un valor. Por ejemplo si el userName es unknown, que aparezca
 por defecto----> userName="unknown"
@@ -18,15 +19,19 @@ const handleClick=()=>{
   return (
     <article className="tw-followCard">
       <header className="tw-followCard-header">
-        <img className="tw-followCard-avatar" alt="Midu" src="https://avatars.githubusercontent.com/u/1561955?v=4"/>
+        <img className="tw-followCard-avatar" alt="Midu" src={`https://unavatar.io/${userName}`}/>
         <div className="tw-followCard-info">
-          <strong> {name}</strong>
+          <strong> {children}</strong>
           <span className="tw-followCard-username">@{userName}</span>
         </div>
       </header>
 
       <aside>
-        <button className={buttonClassName} onClick={handleClick}> {text} </button>
+        <button className={buttonClassName} onClick={handleClick}>
+          <span className='tw-followCard-text'>{text}</span>
+          <span className='tw-followCard-stopFollow'> Dejar de seguir </span>
+        </button> 
+
       </aside>
     </article>
   )
